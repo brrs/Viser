@@ -74,14 +74,14 @@ fun Header(navController: NavController, bookName: String) {
         }
         Text(
             text = bookName,
-            fontSize = 24.sp,
+            fontSize = 22.sp,
             fontFamily = FontFamily.SansSerif,
             color = MaterialTheme.colors.onPrimary,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier
                 .align(Alignment.Center)
-                .padding(horizontal = 64.dp)
+                .padding(horizontal = 56.dp)
         )
     }
 }
@@ -166,7 +166,6 @@ fun MainInformation(book: Book, navController: NavController) {
                         style = MaterialTheme.typography.caption
                     )
                     Spacer(Modifier.height(8.dp))
-                    //ExpandingText(text = book.description)
                     Column(Modifier.padding(8.dp)) {
                         var seeMore by remember { mutableStateOf(true) }
                         Text(

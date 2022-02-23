@@ -1,6 +1,12 @@
 package re.proxy0.viser.ui.screens
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.*
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -17,19 +23,22 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import re.proxy0.viser.R
+import re.proxy0.viser.ui.theme.NightColorPrimaryVariant
 import re.proxy0.viser.ui.theme.OneMoreColor
 import re.proxy0.viser.ui.theme.Transparent
 import re.proxy0.viser.ui.theme.White
 
-@OptIn(ExperimentalMaterial3Api::class)
-@ExperimentalMaterialApi
+
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterialApi::class)
 @Composable
 fun ReaderScreen(navController: NavHostController) {
     BottomSheetScaffold(navController)
@@ -46,10 +55,7 @@ fun BottomSheetScaffold(navController: NavHostController) {
     val coroutineScope = rememberCoroutineScope()
     val spacingModeState = remember { mutableStateOf(1) }
     val textSizeState = remember { mutableStateOf(16) }
-    val scrollState = rememberScrollState()
     val scrollBehavior = remember { TopAppBarDefaults.pinnedScrollBehavior() }
-
-
 
     ModalBottomSheetLayout(
         sheetState = bottomState,
@@ -63,17 +69,9 @@ fun BottomSheetScaffold(navController: NavHostController) {
         scrimColor = Color.Unspecified
     ) {
         Scaffold(
-            /*floatingActionButton = {
-                AdjustTextFab(
-                    scope = coroutineScope,
-                    bottomSheetScaffoldState = bottomState,
-                    isVisible = scrollState.value == 0
-                )
-            },*/
             content = {
                 MainContent(
                     navController = navController,
-                    scrollState = scrollState,
                     spacingMode = spacingModeState,
                     textSizeState = textSizeState,
                     scope = coroutineScope,
@@ -84,30 +82,30 @@ fun BottomSheetScaffold(navController: NavHostController) {
     }
 }
 
-@OptIn(ExperimentalMaterialApi::class)
+@ExperimentalMaterialApi
 @Composable
 fun MainContent(
     navController: NavHostController,
     spacingMode: MutableState<Int>,
     textSizeState: MutableState<Int>,
-    scrollState: ScrollState,
     scope: CoroutineScope,
     bottomSheetScaffoldState: ModalBottomSheetState
 ) {
-    Column(
-        modifier = Modifier
-            .verticalScroll(scrollState)
-            .fillMaxSize(),
-    ) {
-        Header(
-            navController,
-            scope,
-            bottomSheetScaffoldState
-        )
+    Box {
+        var showTopBar by remember { mutableStateOf(false) }
         Column(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .fillMaxSize()
+                .align(Alignment.TopCenter)
+                .verticalScroll(rememberScrollState())
+                .clickable(interactionSource = MutableInteractionSource(), indication = null) {
+                    showTopBar = !showTopBar
+                },
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Spacer(modifier = Modifier.height(56.dp))
+            Spacer(modifier = Modifier.height(16.dp))
             Text(
                 text = stringResource(id = R.string.article_title),
                 fontSize = 20.sp
@@ -126,7 +124,22 @@ fun MainContent(
                 lineHeight = spacingHeight,
                 fontSize = textSizeState.value.sp
             )
+            // Spacer(modifier = Modifier.height(56.dp))
+            // Text("End of chapter")
+            Spacer(modifier = Modifier.height(128.dp))
         }
+
+        Header(
+            navController,
+            scope,
+            bottomSheetScaffoldState,
+            showTopBar,
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .fillMaxWidth()
+                .animateContentSize()
+                .clickable(enabled = false) { }
+        )
     }
 }
 
@@ -135,40 +148,58 @@ fun MainContent(
 fun Header(
     navController: NavHostController,
     scope: CoroutineScope,
-    bottomSheetScaffoldState: ModalBottomSheetState
+    bottomSheetScaffoldState: ModalBottomSheetState,
+    showTopBar: Boolean,
+    modifier: Modifier
 ) {
-    Box(
-        Modifier
-            .height(56.dp)
-            .fillMaxWidth()
-            .background(MaterialTheme.colors.primary)
+    AnimatedVisibility(
+        visible = showTopBar,
+        enter = fadeIn(tween(100)) /*expandVertically()*/,
+        exit = fadeOut(tween(100)) /*shrinkVertically()*/
     ) {
-        IconButton(
-            onClick = { navController.navigateUp() },
-            modifier = Modifier.align(Alignment.CenterStart)
+        Box(
+            modifier
+                .height(56.dp)
+                .background(NightColorPrimaryVariant)
         ) {
-            Icon(
-                imageVector = Icons.Default.ArrowBack,
-                contentDescription = null,
-                tint = MaterialTheme.colors.onPrimary
-            )
-        }
-        IconButton(
-            onClick = {
-                scope.launch {
-                    if (!bottomSheetScaffoldState.isVisible) {
-                        bottomSheetScaffoldState.show()
-                    } else {
-                        bottomSheetScaffoldState.hide()
+            IconButton(
+                onClick = { navController.navigateUp() },
+                modifier = Modifier.align(Alignment.CenterStart)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = null,
+                    tint = MaterialTheme.colors.onPrimary
+                )
+            }
+            IconButton(
+                onClick = {
+                    scope.launch {
+                        if (!bottomSheetScaffoldState.isVisible) {
+                            bottomSheetScaffoldState.show()
+                        } else {
+                            bottomSheetScaffoldState.hide()
+                        }
                     }
-                }
-            },
-            modifier = Modifier.align(Alignment.CenterEnd)
-        ) {
-            Icon(
-                painter = painterResource(id = R.drawable.ic_adjust_text),
-                contentDescription = null,
-                tint = MaterialTheme.colors.onPrimary
+                },
+                modifier = Modifier.align(Alignment.CenterEnd)
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_adjust_text),
+                    contentDescription = null,
+                    tint = MaterialTheme.colors.onPrimary
+                )
+            }
+            Text(
+                text = "Chapter 1. Today I was born.",
+                fontSize = 22.sp,
+                fontFamily = FontFamily.SansSerif,
+                color = MaterialTheme.colors.onPrimary,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .padding(horizontal = 56.dp)
             )
         }
     }
@@ -196,30 +227,6 @@ fun BottomSheetContent(spacingMode: MutableState<Int>, textSizeState: MutableSta
         LineSpacingButtons(spacingMode)
     }
 }
-
-/*@ExperimentalMaterialApi
-@Composable
-fun AdjustTextFab(
-    scope: CoroutineScope,
-    bottomSheetScaffoldState: ModalBottomSheetState,
-    isVisible: Boolean
-) {
-    if (isVisible) FloatingActionButton(
-        onClick = {
-            scope.launch {
-                if (!bottomSheetScaffoldState.isVisible) {
-                    bottomSheetScaffoldState.show()
-                } else {
-                    bottomSheetScaffoldState.hide()
-                }
-            }
-        },
-        modifier = Modifier
-            .size(64.dp),
-        ) {
-        Icon(painter = painterResource(id = R.drawable.ic_adjust_text), "", modifier = Modifier.size(32.dp))
-    }
-}*/
 
 @Composable
 fun FontSizeButtons(textSizeState: MutableState<Int>) {
@@ -264,6 +271,8 @@ fun FontSizeButtons(textSizeState: MutableState<Int>) {
     }
 }
 
+
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun LineSpacingButtons(spacingMode: MutableState<Int>) {
     Row {
