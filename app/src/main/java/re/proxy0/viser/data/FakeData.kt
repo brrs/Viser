@@ -55,9 +55,8 @@ fun generateBook(): Book = Book(
     chapters = generateChapters(12)
 )
 
-private fun getRandomGenres(): List<String> = List(Genre.values().size) {
-    val randomGenreIndex = (1..Genre.values().size).random() - 1
-    Genre.values()[randomGenreIndex].toString()
+private fun getRandomGenres(): List<String> = List((1..Genre.values().size).random() - 1) {
+    Genre.values()[(1..Genre.values().size).random() - 1].toString()
 }
 
 private fun generateChapters(amount: Int): List<Chapter> = List(amount) {
