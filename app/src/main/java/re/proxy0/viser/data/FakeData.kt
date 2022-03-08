@@ -8,7 +8,7 @@ class Book(
     val status: Status,
     val chapters: List<Chapter>,
     val description: String = getDescriptionText(),
-    val coverUrl: String = "https://picsum.photos/id/11".plus(id).plus("/200/")
+    val coverUrl: String = "https://picsum.photos/id/".plus((1..1000).random()).plus("/200/")
 ) {
     enum class Status {
         COMPLETED, ONGOING
