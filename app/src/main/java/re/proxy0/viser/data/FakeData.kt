@@ -118,126 +118,39 @@ private fun getDescriptionText(): String {
 }
 
 private fun getChapterText(): String {
-    return "“Reporting! We found another victim at the location. There is no sign of the preparator on the scene!”\n" +
+    return "Cras lacus tortor, luctus sit amet est vel, dignissim scelerisque erat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut vel sagittis nisl. Quisque euismod venenatis scelerisque. Suspendisse interdum turpis vitae dolor gravida, at dignissim eros interdum. Integer elementum metus a lectus lacinia molestie. Mauris tristique fermentum nibh, vel efficitur justo. Aliquam convallis nisi id lobortis ornare. Cras porta sodales mauris vitae pharetra. Pellentesque consequat turpis erat, vel lobortis augue placerat quis. Donec varius posuere tellus non gravida. Cras semper efficitur malesuada.\n" +
             "\n" +
-            "Looking at the young man that was lying on the ground who was being examined by his colleague, the police officer reported his squad’s findings to his superior with a dark face.\n" +
+            "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent iaculis velit vitae lobortis aliquet. Curabitur eu efficitur quam. Nulla ex nulla, tincidunt id facilisis sit amet, ultrices imperdiet enim. Nulla vitae tristique lacus. Proin consequat nisi ut maximus venenatis. Suspendisse nec libero ut est congue tempus non sed felis. Mauris nec pulvinar nisl, sed pharetra arcu. Curabitur nisl lorem, hendrerit eu elit ac, vulputate viverra nisl. Vestibulum ante dolor, malesuada id ante et, rutrum gravida ipsum. Nunc ac egestas elit, et posuere arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed in mattis diam, vitae euismod metus. Nullam ac libero non dui aliquet consectetur in sed libero.\n" +
             "\n" +
-            "“Got it, call for an emergency ambulance and wait for reinforcements. I already called the department to send another squad. Once they arrive, take half of your squad and sweep the area on a larger radius along with them.”\n" +
+            "Pellentesque pretium sem lobortis, facilisis erat eu, viverra mauris. Donec risus justo, vulputate ac fermentum vitae, ornare ac turpis. Suspendisse non elit sollicitudin, suscipit turpis id, luctus arcu. In posuere vestibulum quam, ut dignissim est pretium at. Ut euismod nulla vitae porttitor luctus. Nulla nec euismod arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc eleifend elit euismod nunc dapibus, quis viverra orci laoreet. Nunc accumsan laoreet ligula sed pulvinar. Proin et tincidunt ex, vel facilisis nulla. Aenean gravida ultricies sapien sed tempor. Aliquam non feugiat ex, ut luctus nisl. Ut erat velit, egestas in elementum non, pellentesque a felis. Proin sapien odio, ullamcorper vitae dolor non, auctor tincidunt libero.\n" +
             "\n" +
-            "The young man had injuries of various degrees and shapes all over his body and his clothes were covered in blood. According to the quick examination they made, his injuries weren’t life-threatening and he seemed to have simply fainted, but even then, his face showed a pained expression that couldn’t be hidden by the injuries on his face.\n" +
+            "Proin nec pharetra magna, quis pharetra enim. Donec at vehicula massa. Vestibulum vitae nibh blandit diam ullamcorper lacinia. Ut eros quam, dictum at ligula vel, auctor hendrerit sem. Fusce feugiat, dolor id congue euismod, neque lectus pulvinar sem, ac sollicitudin turpis risus vel turpis. Nam eget blandit diam. Integer interdum lorem at euismod pharetra. Etiam nulla nunc, tristique id elit quis, luctus suscipit justo. In vitae interdum elit, a pellentesque lorem. Aliquam quam lectus, ornare et nibh quis, ultricies porttitor magna. Morbi a elit urna. Phasellus varius leo at fermentum porttitor. Cras eu neque luctus, commodo magna nec, placerat ipsum. Morbi eu congue magna.\n" +
             "\n" +
-            "“Yes, sir!”\n" +
+            "Cras ligula sapien, ullamcorper id venenatis sit amet, pulvinar at tellus. Sed ut ullamcorper dui. Sed arcu ipsum, consequat nec finibus at, pretium eget turpis. Aenean in quam vel lacus dignissim pretium. Nulla vestibulum, est vitae iaculis euismod, enim lacus lacinia nisl, in rutrum ex nunc in sem. Duis tellus massa, fringilla a faucibus venenatis, convallis vitae magna. Maecenas ornare fermentum enim id venenatis. Etiam enim ante, feugiat at tincidunt eget, mattis at metus. Phasellus auctor ut odio et tincidunt. Cras pharetra augue et mauris porttitor tristique. Quisque sed eros nisl. Sed pellentesque malesuada dolor, ac tincidunt lorem condimentum sed. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas vel sagittis arcu. Nunc ut varius nunc. In facilisis ante est, cursus lobortis neque molestie in.\n" +
             "\n" +
-            "Taking another look at the young man, the superior police officer let out a sigh as displeasure could be seen on his face, before muttering to himself, “I was going to be transferred soon, why is it that a serial kidnapper had to start his business now?!”\n" +
+            "Vivamus eu diam eget nisi porttitor feugiat. Ut ut faucibus tellus. Ut sem arcu, viverra a tincidunt quis, cursus ultrices purus. Curabitur iaculis convallis turpis eu condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean finibus pretium commodo. Maecenas vulputate eu velit nec sollicitudin. Cras quis dui erat. Nulla et facilisis nisi. Nam lacinia, ligula nec pretium vulputate, nulla arcu consectetur turpis, sit amet vestibulum neque nisi eu nulla. Nunc in tincidunt mi, id luctus ligula. Integer vitae mattis mauris, quis rhoncus eros. In turpis est, vulputate at eros ut, suscipit molestie quam. Nulla nec nunc libero. Integer molestie nec metus ut facilisis. Nulla sed sapien libero.\n" +
             "\n" +
-            "In reality, he wanted to quickly catch the criminal behind this so that the streets could be safe again, but it wasn’t like he could do much. The criminal this time was simply too careful and always managed to escape after returning the mutilated victims. Unless a better force worked in this case, catching him didn’t seem possible…\n" +
+            "Proin posuere congue tempor. Phasellus suscipit nisl diam, et tristique purus auctor a. Maecenas bibendum condimentum est vel vulputate. Pellentesque aliquet, libero sit amet dignissim euismod, velit tortor efficitur quam, a varius odio massa eget diam. Morbi scelerisque, sem sit amet luctus laoreet, leo nisi facilisis diam, at luctus quam tellus placerat augue. Etiam nibh urna, tristique eu tristique vel, bibendum quis lacus. Morbi eu mattis elit, in finibus arcu. Nunc convallis rhoncus erat nec consequat. Sed finibus nibh sit amet elit lobortis, eu elementum ex volutpat. Maecenas ac consectetur augue, et facilisis mi. Ut ac dapibus dui. Sed vel magna non eros rhoncus faucibus molestie quis purus. Aliquam erat volutpat.\n" +
             "\n" +
-            "‘Just how many people will have to suffer until then?’\n" +
+            "Aliquam sollicitudin, arcu ut lobortis pharetra, urna mi sodales velit, sed rutrum massa ante vel massa. Phasellus vel nibh sem. Suspendisse magna augue, condimentum et dictum sed, molestie non libero. Donec scelerisque velit at suscipit rutrum. Aliquam malesuada neque id nibh commodo ultricies. Fusce purus ante, scelerisque at laoreet in, auctor at ligula. Sed ornare nisl eu diam imperdiet semper. Sed dictum condimentum aliquam. Cras ultrices porta elementum. Donec et convallis dui. Maecenas volutpat risus purus, sed tincidunt urna cursus vitae. Vivamus dapibus elit id massa pretium faucibus. Donec convallis, quam ac vulputate porttitor, urna ex molestie lorem, vitae pretium nulla justo ac ante. In faucibus tellus sed magna fringilla pharetra. Donec vestibulum lacus mi, ac condimentum nibh pharetra in. Mauris vel luctus ex.\n" +
             "\n" +
-            "As he looked down with gloomy thought, eyes like that of a hawk with slightly dilated pupils seemed to focus on him from a few hundred meters away.\n" +
+            "Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam faucibus leo ac felis dictum, vel gravida nulla iaculis. Integer efficitur tincidunt quam, eget dictum urna fermentum eu. Nullam vehicula sodales lacinia. Sed vestibulum arcu pharetra eros eleifend, sit amet fringilla urna sollicitudin. In auctor mi quis sapien ultricies, non fermentum lectus consectetur. Nulla facilisi. Mauris a tortor ut velit semper mollis. Vestibulum gravida pretium nisi sit amet dapibus. Nam eget mauris tellus. Integer ipsum nunc, fermentum sed bibendum ut, gravida vitae eros. Fusce sit amet hendrerit erat.\n" +
             "\n" +
-            "Below these eyes, a half-grin could be seen, but it quickly disappeared, as obvious displeasure took its place.\n" +
+            "Suspendisse vitae justo interdum, semper nunc ac, hendrerit nulla. Integer faucibus consequat urna, ac ornare magna finibus et. Donec facilisis maximus elit, non ultrices mi vestibulum sed. Quisque dapibus enim at erat maximus, quis egestas diam porttitor. Vestibulum eu turpis massa. Cras dui nisl, sagittis id neque a, ultrices venenatis mi. Donec ut enim ut dolor placerat posuere non eu odio. Suspendisse et accumsan ante, id elementum tortor. Cras imperdiet blandit volutpat. In condimentum purus id lacus mattis, non interdum velit iaculis. Proin viverra hendrerit ipsum, a euismod mi tincidunt hendrerit. Ut cursus sapien libero, at laoreet quam suscipit vel. Vestibulum vehicula tellus nec massa laoreet, ut venenatis dui sollicitudin.\n" +
             "\n" +
-            "“There isn’t as much ‘despair’ to enjoy as last time. Could it be that my ‘care’ has gotten old since it’s the third time? Do I have to give my next ‘prey’ the sweet salivation of death to get a better reaction?”\n" +
+            "Aenean rutrum libero nec sem varius interdum. Nulla dolor orci, cursus bibendum ligula ac, pretium hendrerit erat. Nam sed erat elementum, imperdiet urna quis, consequat elit. Integer cursus odio sapien, et aliquam arcu ornare in. Nullam pulvinar iaculis ipsum in lobortis. Curabitur imperdiet aliquet mollis. Ut a porttitor nisl, sed tincidunt arcu. In fermentum vel tortor ornare commodo.\n" +
             "\n" +
-            "Putting down his binoculars, a handsome man with short chestnut hair supported his arms on the fence of the rooftop as he pondered in deep thought.\n" +
+            "Nam vitae dolor tellus. Vestibulum neque odio, euismod gravida dolor quis, aliquet eleifend eros. Cras leo lorem, venenatis at mollis eget, vulputate et magna. In in ornare orci. Integer id laoreet elit. Suspendisse potenti. Ut suscipit, ipsum nec ornare iaculis, enim risus sagittis neque, feugiat interdum nibh dui id ante. Morbi egestas metus a dui dapibus pretium.\n" +
             "\n" +
-            "Inflicting injury and seeing the prey’s reaction to it was what he was most passionate about. However, death would rid him of that reaction, that was why he was hesitant about it…\n" +
+            "Integer vitae scelerisque sem, ac eleifend ligula. Sed iaculis sagittis semper. Ut aliquet in mauris nec pellentesque. Quisque sit amet orci auctor, dictum diam id, ornare mauris. Sed ac est quis metus dignissim luctus quis nec massa. Suspendisse vel consequat enim. Sed mattis eget orci et efficitur. Mauris ut sem mi. Morbi ut nulla orci. Quisque eleifend massa purus, et gravida sapien consectetur in. Etiam id mattis odio. Proin eu vestibulum tellus, quis tristique ante. Interdum et malesuada fames ac ante ipsum primis in faucibus.\n" +
             "\n" +
-            "“Perhaps it’s about time, while I would hate to kill my ‘prey’ instead of continuously giving them my ‘care’, I have always wanted to taste the delicious ‘despair’ they would feel just at the moment of their death… I should get going soon so I can start choosing my lucky next ‘prey’!”\n" +
+            "Nunc eget odio suscipit, ultricies lacus eu, mattis nulla. Quisque finibus sapien a imperdiet faucibus. In malesuada in dolor non commodo. Morbi elementum suscipit turpis, id dignissim leo consequat at. Ut porttitor leo in velit feugiat elementum. Nullam venenatis nulla sed odio bibendum placerat. In volutpat orci quis volutpat venenatis. Maecenas ultricies eu magna eget efficitur. Aenean egestas tempus vulputate. Donec mi erat, viverra et dictum sit amet, auctor quis metus. Aenean nec commodo dolor. Fusce massa massa, lacinia sit amet vulputate sit amet, hendrerit vel ligula. Nam rutrum neque orci, quis elementum libero hendrerit et.\n" +
             "\n" +
-            "The handsomeness could no longer be seen on the man’s face as he licked his lips with a malevolent expression on his face, many dark (happy) thoughts seemed to circulate in his mind.\n" +
+            "Vestibulum lorem nisl, malesuada quis metus vitae, fringilla aliquet felis. Suspendisse ut nulla metus. Vivamus imperdiet condimentum sapien eu ornare. Donec feugiat sem in lectus scelerisque bibendum. Phasellus dictum felis enim, et dignissim ipsum dignissim iaculis. Donec gravida lectus ipsum, ac dapibus nisi elementum at. Fusce non nisi est.\n" +
             "\n" +
-            "“Wow, you have already reached this stage! I guess I was really lucky to find you now.”\n" +
+            "Suspendisse lobortis, metus et tincidunt placerat, mi odio efficitur libero, vitae scelerisque mauris quam sed dolor. Nunc orci orci, egestas eget nunc in, interdum fringilla dolor. Vestibulum maximus, dui a tincidunt blandit, augue velit suscipit lacus, sed semper sapien tortor ut augue. Curabitur id mi nunc. Curabitur posuere vel lacus non molestie. Duis vel accumsan eros. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec sodales purus mauris, ac fermentum neque auctor sed. Nam venenatis venenatis tellus, sed cursus lorem ornare molestie.\n" +
             "\n" +
-            "Just as the man picked up his binoculars to take one last look so that he could leave, he was shocked to hear a voice that seemed to carry a hint of sarcasm from behind. He quickly turned around only for his shock to grow stronger!\n" +
+            "Praesent fringilla pulvinar ultrices. Duis vulputate sapien ut dignissim ultricies. Phasellus in purus tincidunt, luctus elit a, tempor nisi. Nunc nec interdum lectus. Morbi finibus convallis porta. Proin gravida quam sit amet odio volutpat, a fermentum massa commodo. Nam a sapien ornare, sodales velit vitae, aliquam mauris. Maecenas eget venenatis dolor, at sollicitudin sapien.\n" +
             "\n" +
-            "The source of this voice was none other than a youth covering his face with a smiling cat mask, he was wearing a windbreaker and had one hand in his pocket, seeming as nonchalant as ever. The man felt as if he had met some sort of stupid clown.\n" +
-            "\n" +
-            "“Huh? Who are you…? Rather, how did you get here?”\n" +
-            "\n" +
-            "The man originally wanted to play the ‘I don’t know anything’ act, but he already spoke too much, so he quickly switched his plan. He secretly put one hand in his pocket, he would make him the next ‘prey’ instead!\n" +
-            "\n" +
-            "However, he couldn’t be too careless since he didn’t have enough fun, it wasn’t time to get caught yet. He planned to chat with the youth so he could relax his guard even more. This way, the risk of him running away from fear before he ‘captured’ him would be almost null.\n" +
-            "\n" +
-            "The youth was obviously not ordinary and seemed to be sick in the head, so it didn’t seem to be that hard. In the worst-case scenario, he could still use that…\n" +
-            "\n" +
-            "“Well, it was a bit tricky since you were quite careful. I had to try a bit harder and wait longer, but it wasn’t that hard thanks to what I learned from my friends.”\n" +
-            "\n" +
-            "“Your friends?”\n" +
-            "\n" +
-            "The man panicked a bit as he thought to himself, ‘Could it be that his friends are skilled police detectives?’\n" +
-            "\n" +
-            "He was sure that such people shouldn’t get involved yet, his ‘care’ didn’t cross the line for now.\n" +
-            "\n" +
-            "“Yes, my friends Sherlock and C. Dupin!”\n" +
-            "\n" +
-            "“…”\n" +
-            "\n" +
-            "The man who was preparing what to say next, thinking how to get closer to the youth without being too suspicious, was stunned in place, this guy was really a mental patient! These were imaginary characters that could only be found in books and shows!\n" +
-            "\n" +
-            "‘This guy must be a gift for me! Seeing and feeling the ‘despair’ of such a special ‘prey’ will definitely be a delicacy!’\n" +
-            "\n" +
-            "The man’s thoughts already deviated as drool could be seen on the edge of his mouth; he almost couldn’t wait to catch this ‘special’ youth.\n" +
-            "\n" +
-            "“Oh, why do you seem so excited for? Don’t you realize that I’m here to catch you?”\n" +
-            "\n" +
-            "The masked youth took his hand out of his pocket as he aimed it towards the man as if he had a gun in hand, a slightly loud voice rang in the man’s ear.\n" +
-            "\n" +
-            "“Bang!”\n" +
-            "\n" +
-            "“Ah!”\n" +
-            "\n" +
-            "The man panicked for a second in fear as he tried to dodge, only to realize that the sound wasn’t that loud, thinking back to it… It was just an imitated sound!\n" +
-            "\n" +
-            "Looking at the youth’s empty gloved hands, he felt stupid for going along with this guy’s stupid trick, if his nerves weren’t tense because of the situation he wouldn’t have fallen for such a simple trick. An irritated expression already started to show on his face.\n" +
-            "\n" +
-            "Visit readlightnovel.me for extra chapters.\n" +
-            "\n" +
-            "“What do you think of my gun? Did it hurt that badly? It’s better not to move for now till the police come to help you.”\n" +
-            "\n" +
-            "The youth spoke in a serious voice as he looked at the irritated man, causing the man’s irritation to spike. Dealing with mentals wasn’t as easy as it seemed.\n" +
-            "\n" +
-            "“Is that so? What about helping me go to the hospital instead?”\n" +
-            "\n" +
-            "Since the youth was clearly a mental patient, the man decided to lower his self-esteem and play along; he would feel worse if this guy escaped instead.\n" +
-            "\n" +
-            "“Oh, sorry, but I can’t. It would be troublesome showing my face to the police. Besides, I also have something that I need to buy soon.”\n" +
-            "\n" +
-            "The man almost wanted to facepalm, the crazy youth neither seemed smart enough to talk normally nor stupid enough to be coaxed. Feeling his patience running out, he decided to just go with the last option.\n" +
-            "\n" +
-            "“Sigh, Fine! What about now?”\n" +
-            "\n" +
-            "The man’s expression turned to a malevolent grin once again as he quickly took out his hand out of his pocket, pointing something at the youth.\n" +
-            "\n" +
-            "He had obtained a gun through special means before he started ‘hunting’ to ensure his safety, now he could at least use it to scare the youth into getting ‘captured’ instead and get out of here quickly!\n" +
-            "\n" +
-            "“Hmmm, what do you mean by that?”\n" +
-            "\n" +
-            "Anger flashed in the man’s eyes, it seemed like this kid didn’t even fear his…\n" +
-            "\n" +
-            "‘Huh?’\n" +
-            "The man looked at his hand in shock, his hand was empty just like the kid’s hand, the gun was still in his pocket.\n" +
-            "\n" +
-            "Quickly wanting to put his hand back in his pocket to take the gun, the guy lowered his arm… only to find that it fell back numb. He seemed to have lost control of his arms.\n" +
-            "\n" +
-            "“Phew that was close, the neuromuscular blocking drug has finally taken effect.”\n" +
-            "\n" +
-            "The youth let out a sigh of relief as he opened the rooftop door and went in, returning with a bag on his bag as he quickly walked towards the man who had already collapsed to the floor.\n" +
-            "\n" +
-            "“Wha… di…”\n" +
-            "\n" +
-            "The man tried to speak but he also lost feeling in his mouth, he could no longer speak. Only then when he felt helpless did he realize that there was a very thin needle stabbed into his arm.\n" +
-            "\n" +
-            "‘I… was played!’\n" +
-            "\n" +
-            "That was the last thought the man had before he started losing his ability to breathe, he was slowly losing consciousness. He only managed to hear the youth speak a few more words before he fainted\n" +
-            "\n" +
-            "“A crazy sadist like you should stay sleeping like that for a while, but it isn’t like I’m one to speak.”\n" +
-            "\n" +
-            "‘After all, this is just a new hobby that I’m trying out to control my reading addiction.’\n" +
-            "\n" +
-            "The youth bent down as he took out an oxygen cylinder, working it out before attaching it through a mask to the man’s face.\n" +
-            "\n" +
-            "“Don’t worry, I won’t let you die.. My new hobby isn’t killing, it’s catching criminals who go overboard.”"
+            "Pellentesque hendrerit pellentesque mauris, a pulvinar felis pulvinar a. Donec aliquet tellus purus, quis malesuada diam rutrum molestie. Sed sit amet erat posuere, porttitor ante ultricies, egestas orci. Proin pulvinar mi quis urna sollicitudin, sit amet sodales lectus pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis tortor metus, blandit ut lacus id, congue tincidunt dolor. Fusce cursus felis a massa gravida fringilla."
 }

@@ -6,11 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.google.accompanist.insets.ProvideWindowInsets
-import re.proxy0.viser.ui.screens.BookDetailsScreen
-import re.proxy0.viser.ui.screens.LibraryScreen
-import re.proxy0.viser.ui.screens.ReaderScreen
-import re.proxy0.viser.ui.screens.ScreenList
+import re.proxy0.viser.ui.screens.*
 import re.proxy0.viser.ui.theme.ViserTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,13 +14,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ViserTheme {
-                ProvideWindowInsets {
-                    val navController = rememberNavController()
-                    NavHost(navController = navController, ScreenList.Library.route) {
-                        composable(ScreenList.Reader.route) { ReaderScreen(navController) }
-                        composable(ScreenList.Library.route) { LibraryScreen(navController) }
-                        composable(ScreenList.BookDetails.route) { BookDetailsScreen(navController) }
-                    }
+                val navController = rememberNavController()
+                NavHost(navController = navController, ScreenList.Splash.route) {
+                    composable(ScreenList.Reader.route) { ReaderScreen(navController) }
+                    composable(ScreenList.Library.route) { LibraryScreen(navController) }
+                    composable(ScreenList.BookDetails.route) { BookDetailsScreen(navController) }
+                    composable(ScreenList.Settings.route) { SettingsScreen(navController) }
+                    composable(ScreenList.Splash.route) { SplashScreen(navController) }
                 }
             }
         }

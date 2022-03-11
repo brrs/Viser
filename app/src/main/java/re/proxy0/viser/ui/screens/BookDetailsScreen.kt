@@ -31,16 +31,18 @@ import re.proxy0.viser.data.Book
 import re.proxy0.viser.data.generateBook
 import re.proxy0.viser.ui.theme.BookStatusCompleted
 import re.proxy0.viser.ui.theme.BookStatusOngoing
-import re.proxy0.viser.ui.theme.OneMoreColor
 
 @Composable
 fun BookDetailsScreen(navController: NavController) {
-    Column {
+    Column(
+        Modifier
+            .background(MaterialTheme.colors.background)
+            .fillMaxSize()
+    ) {
         val book = remember { generateBook() }
         Header(navController, book.name)
         Column {
             MainInformation(book, navController)
-            //ChaptersList(navController, book)
         }
     }
 }
@@ -89,7 +91,7 @@ fun Header(navController: NavController, bookName: String) {
 @Composable
 fun MainInformation(book: Book, navController: NavController) {
     Surface(
-        color = MaterialTheme.colors.primary,
+        color = MaterialTheme.colors.background,
         shape = RoundedCornerShape(bottomStart = 16.dp, bottomEnd = 16.dp),
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -134,11 +136,13 @@ fun MainInformation(book: Book, navController: NavController) {
                     OutlinedButton(
                         onClick = { navController.navigate(ScreenList.Reader.route) },
                         modifier = Modifier.padding(8.dp),
-                        border = BorderStroke(0.5.dp, MaterialTheme.colors.onPrimary)
+                        border = BorderStroke(0.5.dp, MaterialTheme.colors.secondary),
+                        colors = ButtonDefaults.outlinedButtonColors(backgroundColor = MaterialTheme.colors.background)
+
                     ) {
                         Text(
                             text = "Start reading",
-                            color = MaterialTheme.colors.onPrimary,
+                            color = MaterialTheme.colors.onBackground,
                             style = MaterialTheme.typography.button,
                             fontSize = 16.sp
                         )
@@ -198,18 +202,17 @@ fun MainInformation(book: Book, navController: NavController) {
 
 @Composable
 fun GenreItem(name: String, onGenreClick: () -> Unit) {
-
     TextButton(
         onClick = onGenreClick,
         shape = RoundedCornerShape(50),
-        colors = ButtonDefaults.buttonColors(backgroundColor = OneMoreColor),
+        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface),
         modifier = Modifier.padding(horizontal = 16.dp),
         contentPadding = PaddingValues(horizontal = 8.dp)
     ) {
         Text(
             fontSize = 14.sp,
             text = name,
-            color = MaterialTheme.colors.onPrimary
+            color = MaterialTheme.colors.onSurface
         )
     }
 }

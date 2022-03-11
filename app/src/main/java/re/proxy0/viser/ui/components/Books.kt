@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import re.proxy0.viser.data.Book
 import re.proxy0.viser.data.BookCollection
-import re.proxy0.viser.ui.theme.BookItemColor
 
 
 @Composable
@@ -37,8 +36,7 @@ fun BookCollectionList(
         ) {
             Text(
                 text = bookCollection.name,
-                style = MaterialTheme.typography.h6,
-                color = MaterialTheme.colors.onPrimary,
+                color = MaterialTheme.colors.onBackground,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
@@ -51,7 +49,7 @@ fun BookCollectionList(
             ) {
                 Icon(
                     imageVector = Icons.Outlined.ArrowForward,
-                    tint = MaterialTheme.colors.onPrimary,
+                    tint = MaterialTheme.colors.onBackground,
                     contentDescription = null
                 )
             }
@@ -83,7 +81,7 @@ fun BookItem(
     modifier: Modifier = Modifier
 ) {
     Surface(
-        color = BookItemColor,
+        color = MaterialTheme.colors.surface,
         shape = RoundedCornerShape(8.dp),
         modifier = modifier.padding(
             start = 8.dp,
@@ -102,7 +100,7 @@ fun BookItem(
             )
             Text(
                 text = book.name,
-                color = MaterialTheme.colors.onPrimary,
+                color = MaterialTheme.colors.onSurface,
                 modifier = Modifier.padding(top = 8.dp, start = 12.dp)
             )
             Spacer(Modifier.height(8.dp))

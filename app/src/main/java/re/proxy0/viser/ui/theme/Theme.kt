@@ -4,38 +4,47 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.platform.LocalContext
+import re.proxy0.viser.data.UIPreferences
 
 private val DarkColorPalette = darkColors(
-    primary = Black,    //tool bar
-    primaryVariant = NightColorPrimaryVariant,   //bottom sheet
-    secondary = NightColorSecondary,    //???
-    secondaryVariant = NightColorSecondaryVariant,  //???
-    background = Black,   //main screen background
-    surface = Black,  //options menu
-
-    onPrimary = NightColorOnPrimary,
-    onBackground = NightColorOnPrimary,
-    onSecondary = NightColorOnPrimary,
-    onSurface = NightColorOnPrimary,
+    primary = Gray4,
+    primaryVariant = Gray4,
+    onPrimary = White,
+    secondary = Teal3,
+    secondaryVariant = Gray2,
+    onSecondary = White,
+    error = Red1,
+    onError = White,
+    background = Gray4,
+    onBackground = White,
+    surface = Gray1,
+    onSurface = White,
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
-
-    /* Other default colors to override
-background = Color.White,
-surface = Color.White,
-onPrimary = Color.White,
-onSecondary = Color.Black,
-onBackground = Color.Black,
-onSurface = Color.Black,
-*/
+    primary = Yellow3,
+    primaryVariant = Yellow4,
+    onPrimary = Black,
+    secondary = Teal1,
+    secondaryVariant = Teal3,
+    onSecondary = White,
+    error = Red1,
+    onError = White,
+    background = White,
+    onBackground = Black,
+    surface = Yellow2,
+    onSurface = Black
 )
 
 @Composable
-fun ViserTheme(darkTheme: Boolean = true /*isSystemInDarkTheme()*/, content: @Composable() () -> Unit) {
+fun ViserTheme(
+    content: @Composable () -> Unit
+) {
+    val preferences = UIPreferences(LocalContext.current)
+    val darkTheme = preferences.isDarkMode.collectAsState(initial = false).value
+
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {

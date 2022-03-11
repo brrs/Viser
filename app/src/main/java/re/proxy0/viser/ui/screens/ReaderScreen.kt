@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -32,8 +33,8 @@ import androidx.navigation.NavHostController
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import re.proxy0.viser.R
-import re.proxy0.viser.ui.theme.NightColorPrimaryVariant
-import re.proxy0.viser.ui.theme.OneMoreColor
+import re.proxy0.viser.data.UIPreferences
+import re.proxy0.viser.ui.theme.Black
 import re.proxy0.viser.ui.theme.Transparent
 import re.proxy0.viser.ui.theme.White
 
@@ -68,17 +69,15 @@ fun BottomSheetScaffold(navController: NavHostController) {
         sheetShape = RoundedCornerShape(24.dp, 24.dp),
         scrimColor = Color.Unspecified
     ) {
-        Scaffold(
-            content = {
-                MainContent(
-                    navController = navController,
-                    spacingMode = spacingModeState,
-                    textSizeState = textSizeState,
-                    scope = coroutineScope,
-                    bottomSheetScaffoldState = bottomState
-                )
-            }
-        )
+        Scaffold {
+            MainContent(
+                navController = navController,
+                spacingMode = spacingModeState,
+                textSizeState = textSizeState,
+                scope = coroutineScope,
+                bottomSheetScaffoldState = bottomState
+            )
+        }
     }
 }
 
@@ -91,7 +90,9 @@ fun MainContent(
     scope: CoroutineScope,
     bottomSheetScaffoldState: ModalBottomSheetState
 ) {
-    Box {
+    val darkMode = UIPreferences(LocalContext.current).isDarkMode.collectAsState(false).value
+    val backgroundColor = if (darkMode) Black else White
+    Box(Modifier.background(backgroundColor)) {
         var showTopBar by remember { mutableStateOf(false) }
         Column(
             modifier = Modifier
@@ -154,13 +155,13 @@ fun Header(
 ) {
     AnimatedVisibility(
         visible = showTopBar,
-        enter = fadeIn(tween(100)) /*expandVertically()*/,
-        exit = fadeOut(tween(100)) /*shrinkVertically()*/
+        enter = fadeIn(tween(200)) /*expandVertically()*/,
+        exit = fadeOut(tween(200)) /*shrinkVertically()*/
     ) {
         Box(
             modifier
                 .height(56.dp)
-                .background(NightColorPrimaryVariant)
+                .background(MaterialTheme.colors.primary)
         ) {
             IconButton(
                 onClick = { navController.navigateUp() },
@@ -211,13 +212,14 @@ fun BottomSheetContent(spacingMode: MutableState<Int>, textSizeState: MutableSta
         Modifier
             .fillMaxWidth()
             .height(300.dp)
-            .background(MaterialTheme.colors.primaryVariant)
+            .background(MaterialTheme.colors.background)
             .padding(8.dp, 0.dp)
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_horizontal_rule),
             contentDescription = "",
-            Modifier
+            tint = MaterialTheme.colors.onBackground,
+            modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp)
                 .align(Alignment.CenterHorizontally),
@@ -240,12 +242,12 @@ fun FontSizeButtons(textSizeState: MutableState<Int>) {
                 .height(64.dp)
                 .weight(1f),
             shape = RoundedCornerShape(25, 0, 0, 25),
-            colors = ButtonDefaults.buttonColors(backgroundColor = OneMoreColor)
+            colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary)
         ) {
             Text(
                 "A",
                 fontSize = 16.sp,
-                color = MaterialTheme.colors.onSurface,
+                color = MaterialTheme.colors.onSecondary,
                 textAlign = TextAlign.Center
             )
         }
@@ -259,12 +261,12 @@ fun FontSizeButtons(textSizeState: MutableState<Int>) {
                 .height(64.dp)
                 .weight(1f),
             shape = RoundedCornerShape(0, 25, 25, 0),
-            colors = ButtonDefaults.buttonColors(backgroundColor = OneMoreColor)
+            colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.secondary)
         ) {
             Text(
                 "A",
                 fontSize = 32.sp,
-                color = MaterialTheme.colors.onSurface,
+                color = MaterialTheme.colors.onSecondary,
                 textAlign = TextAlign.Center
             )
         }
@@ -314,13 +316,14 @@ fun LineSpacingButton(
         shape = RoundedCornerShape(25),
         onClick = { onClick.invoke() },
         color = Transparent,
-        border = if (isChosen) BorderStroke(1.dp, White) else null
+        border = if (isChosen) BorderStroke(1.dp, MaterialTheme.colors.secondary) else null
     ) {
         Icon(
             modifier = modifier
                 .padding(8.dp),
             painter = painter,
-            contentDescription = ""
+            contentDescription = "",
+            tint = MaterialTheme.colors.onBackground
         )
     }
 }
