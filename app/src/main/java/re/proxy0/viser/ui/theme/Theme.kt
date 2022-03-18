@@ -43,7 +43,7 @@ fun ViserTheme(
     content: @Composable () -> Unit
 ) {
     val preferences = UIPreferences(LocalContext.current)
-    val darkTheme = preferences.isDarkMode.collectAsState(initial = false).value
+    val darkTheme = preferences.darkMode.collectAsState(initial = true).value
 
     val colors = if (darkTheme) {
         DarkColorPalette

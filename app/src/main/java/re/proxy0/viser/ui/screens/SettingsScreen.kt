@@ -37,7 +37,7 @@ fun SwitchItem() {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val preferences = UIPreferences(context)
-    val darkMode = preferences.isDarkMode.collectAsState(initial = false).value
+    val darkMode = preferences.darkMode.collectAsState(initial = false).value
 
     Box(
         Modifier

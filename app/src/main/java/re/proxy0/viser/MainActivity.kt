@@ -7,11 +7,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import re.proxy0.viser.ui.screens.*
+import re.proxy0.viser.ui.screens.reader.ReaderScreen
 import re.proxy0.viser.ui.theme.ViserTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Graph.provide(this)
         setContent {
             ViserTheme {
                 val navController = rememberNavController()

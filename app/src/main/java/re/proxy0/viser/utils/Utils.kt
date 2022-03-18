@@ -15,5 +15,5 @@ fun randomColor(): Color {
 @Composable
 fun isDarkTheme(): Boolean {
     val preferences = UIPreferences(LocalContext.current)
-    return preferences.isDarkMode.collectAsState(initial = false).value
+    return preferences.darkMode.collectAsState(initial = false).value
 }
