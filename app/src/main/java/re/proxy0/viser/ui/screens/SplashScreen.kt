@@ -6,7 +6,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -17,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import kotlinx.coroutines.delay
 import re.proxy0.viser.R
+import re.proxy0.viser.ui.theme.ViserTheme
 
 @Composable
 fun SplashScreen(navController: NavController) {
@@ -38,7 +38,7 @@ fun SplashScreen(navController: NavController) {
 fun Splash(alpha: Float) {
     Box(
         modifier = Modifier
-            .background(MaterialTheme.colors.background)
+            .background(ViserTheme.colors.leading)
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
@@ -48,7 +48,7 @@ fun Splash(alpha: Float) {
                 .alpha(alpha = alpha),
             painter = painterResource(id = R.drawable.ic_launcher_foreground),
             contentDescription = "",
-            tint = MaterialTheme.colors.onBackground
+            tint = ViserTheme.colors.onLeading
         )
     }
 }

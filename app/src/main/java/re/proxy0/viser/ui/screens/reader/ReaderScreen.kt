@@ -38,8 +38,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import re.proxy0.viser.R
 import re.proxy0.viser.data.UIPreferences
-import re.proxy0.viser.ui.screens.TextFormattingScreen
 import re.proxy0.viser.ui.theme.Black
+import re.proxy0.viser.ui.theme.ViserTheme
 import re.proxy0.viser.ui.theme.White
 
 
@@ -65,7 +65,7 @@ fun BottomSheetScaffold(navController: NavHostController, viewModel: ReaderViewM
         sheetContent = {
             BottomSheetContent(viewModel)
         },
-        sheetBackgroundColor = MaterialTheme.colors.surface,
+        sheetBackgroundColor = ViserTheme.colors.surface,
         sheetElevation = 16.dp,
         sheetShape = RoundedCornerShape(24.dp, 24.dp),
         scrimColor = Color.Unspecified
@@ -108,7 +108,7 @@ fun MainContent(
     val uiPreferences = UIPreferences(LocalContext.current)
     val darkMode = uiPreferences.darkMode.collectAsState(false).value
     val backgroundColor = if (darkMode) Black else White
-    Box(Modifier.background(backgroundColor)) {
+    Box(Modifier.background(ViserTheme.colors.surface)) {
         var showTopBar by remember { mutableStateOf(false) }
         Column(
             modifier = Modifier
@@ -124,6 +124,7 @@ fun MainContent(
             Spacer(modifier = Modifier.height(64.dp))
 
             Text(
+                color = ViserTheme.colors.onSurface,
                 text = viewState.title,
                 fontSize = (viewState.fontSize + 2).sp,
                 style = MaterialTheme.typography.h4,
@@ -133,12 +134,13 @@ fun MainContent(
             Spacer(modifier = Modifier.height(32.dp))
 
             val customTextSelectionColors = TextSelectionColors(
-                handleColor = MaterialTheme.colors.secondary,
-                backgroundColor = MaterialTheme.colors.secondary.copy(alpha = 0.4f)
+                handleColor = ViserTheme.colors.accent,
+                backgroundColor = ViserTheme.colors.accent.copy(alpha = 0.4f)
             )
             CompositionLocalProvider(LocalTextSelectionColors provides customTextSelectionColors) {
                 SelectionContainer {
                     Text(
+                        color = ViserTheme.colors.onSurface,
                         text = viewState.text,
                         fontSize = viewState.fontSize.sp,
                         lineHeight = (viewState.fontSize * viewState.lineSpacing).sp
@@ -178,7 +180,7 @@ fun Header(
         Box(
             modifier
                 .height(56.dp)
-                .background(MaterialTheme.colors.primary)
+                .background(ViserTheme.colors.leading)
         ) {
             IconButton(
                 onClick = { navController.navigateUp() },
@@ -187,7 +189,7 @@ fun Header(
                 Icon(
                     imageVector = Icons.Default.ArrowBack,
                     contentDescription = null,
-                    tint = MaterialTheme.colors.onPrimary
+                    tint = ViserTheme.colors.onLeading
                 )
             }
             IconButton(
@@ -197,19 +199,25 @@ fun Header(
                 Icon(
                     painter = painterResource(id = R.drawable.ic_adjust_text),
                     contentDescription = null,
-                    tint = MaterialTheme.colors.onPrimary
+                    tint = ViserTheme.colors.onLeading
                 )
             }
             Text(
                 text = "Chapter 1. Today I was born.",
                 fontSize = 22.sp,
                 fontFamily = FontFamily.SansSerif,
-                color = MaterialTheme.colors.onPrimary,
+                color = ViserTheme.colors.onLeading,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
                     .align(Alignment.Center)
                     .padding(horizontal = 56.dp)
+            )
+            Divider(
+                Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.BottomCenter),
+                color = ViserTheme.colors.background
             )
         }
     }
@@ -221,13 +229,13 @@ fun BottomSheetContent(viewModel: ReaderViewModel) {
         Modifier
             .fillMaxWidth()
             .height(300.dp)
-            .background(MaterialTheme.colors.background)
+            .background(ViserTheme.colors.background)
             .padding(8.dp, 0.dp)
     ) {
         Icon(
             painter = painterResource(id = R.drawable.ic_horizontal_rule),
             contentDescription = "",
-            tint = MaterialTheme.colors.onBackground,
+            tint = ViserTheme.colors.accessoryVariant,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(48.dp)

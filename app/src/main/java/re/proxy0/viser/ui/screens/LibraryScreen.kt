@@ -4,9 +4,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
@@ -23,12 +23,13 @@ import re.proxy0.viser.R
 import re.proxy0.viser.data.BookCollection
 import re.proxy0.viser.data.generateCollection
 import re.proxy0.viser.ui.components.BookCollectionList
+import re.proxy0.viser.ui.theme.ViserTheme
 
 @Composable
 fun LibraryScreen(navController: NavController) {
     Column(
         Modifier
-            .background(MaterialTheme.colors.background)
+            .background(ViserTheme.colors.surface)
             .fillMaxSize()
     ) {
         Header(navController)
@@ -42,7 +43,7 @@ fun Header(navController: NavController) {
         Modifier
             .height(56.dp)
             .fillMaxWidth()
-            .background(MaterialTheme.colors.primary)
+            .background(ViserTheme.colors.leading)
     ) {
         IconButton(
             onClick = { navController.navigate(ScreenList.Settings.route) },
@@ -51,14 +52,14 @@ fun Header(navController: NavController) {
             Icon(
                 imageVector = Icons.Default.Settings,
                 contentDescription = null,
-                tint = MaterialTheme.colors.onPrimary
+                tint = ViserTheme.colors.onLeading
             )
         }
         IconButton(onClick = { }, modifier = Modifier.align(Alignment.CenterEnd)) {
             Icon(
                 imageVector = Icons.Default.Search,
                 contentDescription = null,
-                tint = MaterialTheme.colors.onPrimary
+                tint = ViserTheme.colors.onLeading
             )
         }
 
@@ -66,8 +67,14 @@ fun Header(navController: NavController) {
             text = stringResource(id = R.string.app_name),
             fontSize = 24.sp,
             fontFamily = FontFamily.SansSerif,
-            color = MaterialTheme.colors.onPrimary,
+            color = ViserTheme.colors.onLeading,
             modifier = Modifier.align(Alignment.Center)
+        )
+        Divider(
+            Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter),
+            color = ViserTheme.colors.background
         )
     }
 }

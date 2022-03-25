@@ -2,6 +2,7 @@ package re.proxy0.viser.ui.screens
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.*
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -11,6 +12,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -29,14 +31,13 @@ import coil.compose.rememberImagePainter
 import re.proxy0.viser.R
 import re.proxy0.viser.data.Book
 import re.proxy0.viser.data.generateBook
-import re.proxy0.viser.ui.theme.BookStatusCompleted
-import re.proxy0.viser.ui.theme.BookStatusOngoing
+import re.proxy0.viser.ui.theme.ViserTheme
 
 @Composable
 fun BookDetailsScreen(navController: NavController) {
     Column(
         Modifier
-            .background(MaterialTheme.colors.background)
+            .background(ViserTheme.colors.background)
             .fillMaxSize()
     ) {
         val book = remember { generateBook() }
@@ -53,7 +54,7 @@ fun Header(navController: NavController, bookName: String) {
         Modifier
             .height(56.dp)
             .fillMaxWidth()
-            .background(MaterialTheme.colors.primary)
+            .background(ViserTheme.colors.leading)
     ) {
         IconButton(
             modifier = Modifier.align(Alignment.CenterStart),
@@ -61,7 +62,7 @@ fun Header(navController: NavController, bookName: String) {
             Icon(
                 imageVector = Icons.Default.ArrowBack,
                 contentDescription = null,
-                tint = MaterialTheme.colors.onPrimary
+                tint = ViserTheme.colors.onLeading
             )
         }
         IconButton(
@@ -71,19 +72,25 @@ fun Header(navController: NavController, bookName: String) {
             Icon(
                 imageVector = Icons.Default.Share,
                 contentDescription = null,
-                tint = MaterialTheme.colors.onPrimary
+                tint = ViserTheme.colors.onLeading
             )
         }
         Text(
             text = bookName,
             fontSize = 22.sp,
             fontFamily = FontFamily.SansSerif,
-            color = MaterialTheme.colors.onPrimary,
+            color = ViserTheme.colors.onLeading,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier
                 .align(Alignment.Center)
                 .padding(horizontal = 56.dp)
+        )
+        Divider(
+            Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter),
+            color = ViserTheme.colors.background
         )
     }
 }
@@ -91,7 +98,7 @@ fun Header(navController: NavController, bookName: String) {
 @Composable
 fun MainInformation(book: Book, navController: NavController) {
     Surface(
-        color = MaterialTheme.colors.background,
+        color = ViserTheme.colors.surface,
         shape = RoundedCornerShape(bottomStart = 16.dp, bottomEnd = 16.dp),
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -114,7 +121,7 @@ fun MainInformation(book: Book, navController: NavController) {
                     Text(
                         text = book.name,
                         style = MaterialTheme.typography.h6,
-                        color = MaterialTheme.colors.onPrimary,
+                        color = ViserTheme.colors.onSurface,
                         maxLines = 3,
                         overflow = TextOverflow.Ellipsis,
                     )
@@ -122,27 +129,32 @@ fun MainInformation(book: Book, navController: NavController) {
                     Text(
                         text = book.status.toString().lowercase()
                             .replaceFirstChar { it.uppercase() },
-                        color = if (book.status == Book.Status.COMPLETED) BookStatusCompleted else BookStatusOngoing,
+                        color = if (book.status == Book.Status.COMPLETED)
+                            ViserTheme.colors.statusCompleted else ViserTheme.colors.statusOngoing,
                         fontFamily = FontFamily.Monospace,
                         fontWeight = FontWeight.Bold
                     )
                     Spacer(Modifier.height(4.dp))
                     Text(
                         text = book.author,
-                        color = MaterialTheme.colors.onPrimary,
+                        color = ViserTheme.colors.onSurfaceSecondary,
                         fontSize = 16.sp
                     )
                     Spacer(Modifier.height(8.dp))
                     OutlinedButton(
                         onClick = { navController.navigate(ScreenList.Reader.route) },
-                        modifier = Modifier.padding(8.dp),
-                        border = BorderStroke(0.5.dp, MaterialTheme.colors.secondary),
-                        colors = ButtonDefaults.outlinedButtonColors(backgroundColor = MaterialTheme.colors.background)
-
+                        border = BorderStroke(0.5.dp, ViserTheme.colors.accent),
+                        colors = ButtonDefaults.outlinedButtonColors(backgroundColor = ViserTheme.colors.surface),
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .clickable(
+                                indication = rememberRipple(bounded = true),
+                                interactionSource = MutableInteractionSource()
+                            ) { }
                     ) {
                         Text(
                             text = "Start reading",
-                            color = MaterialTheme.colors.onBackground,
+                            color = ViserTheme.colors.accent,
                             style = MaterialTheme.typography.button,
                             fontSize = 16.sp
                         )
@@ -160,13 +172,16 @@ fun MainInformation(book: Book, navController: NavController) {
             }
             Spacer(Modifier.height(8.dp))
             Column(Modifier.padding(horizontal = 16.dp)) {
-                Divider(Modifier.fillMaxWidth())
+                Divider(
+                    Modifier.fillMaxWidth(),
+                    color = ViserTheme.colors.background
+                )
                 Spacer(Modifier.height(24.dp))
                 Column {
                     Text(
                         text = "Description:",
                         fontSize = 18.sp,
-                        color = MaterialTheme.colors.onPrimary,
+                        color = ViserTheme.colors.onSurfaceSecondary,
                         style = MaterialTheme.typography.caption
                     )
                     Spacer(Modifier.height(8.dp))
@@ -175,7 +190,7 @@ fun MainInformation(book: Book, navController: NavController) {
                         Text(
                             text = book.description,
                             style = MaterialTheme.typography.body1,
-                            color = MaterialTheme.colors.onPrimary,
+                            color = ViserTheme.colors.onSurfaceSecondary,
                             maxLines = if (seeMore) 5 else Int.MAX_VALUE,
                             modifier = Modifier.animateContentSize()
                         )
@@ -190,7 +205,7 @@ fun MainInformation(book: Book, navController: NavController) {
                                 text = textButton,
                                 style = MaterialTheme.typography.button,
                                 textAlign = TextAlign.Center,
-                                color = MaterialTheme.colors.onPrimary,
+                                color = ViserTheme.colors.onSurfaceSecondary,
                             )
                         }
                     }
@@ -205,14 +220,14 @@ fun GenreItem(name: String, onGenreClick: () -> Unit) {
     TextButton(
         onClick = onGenreClick,
         shape = RoundedCornerShape(50),
-        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.surface),
+        colors = ButtonDefaults.buttonColors(backgroundColor = ViserTheme.colors.background),
         modifier = Modifier.padding(horizontal = 16.dp),
         contentPadding = PaddingValues(horizontal = 8.dp)
     ) {
         Text(
             fontSize = 14.sp,
             text = name,
-            color = MaterialTheme.colors.onSurface
+            color = ViserTheme.colors.onBackgroundSecondary
         )
     }
 }
@@ -242,7 +257,6 @@ fun ChaptersList(navController: NavController, book: Book) {
 @Composable
 fun Chapter(name: String, date: String) {
     Surface(
-        //color = Color.Transparent,
         modifier = Modifier.clickable { }
     ) {
         Box(

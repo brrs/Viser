@@ -17,13 +17,15 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.launch
 import re.proxy0.viser.data.UIPreferences
+import re.proxy0.viser.ui.theme.AlphaNearOpaque
+import re.proxy0.viser.ui.theme.ViserTheme
 
 @Composable
 fun SettingsScreen(navController: NavHostController) {
     Column(
         Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colors.background)
+            .background(ViserTheme.colors.surface)
     ) {
         Header(navController)
         Column {
@@ -44,13 +46,16 @@ fun SwitchItem() {
             .padding(horizontal = 16.dp)
             .height(64.dp)
             .fillMaxWidth()
+            .background(ViserTheme.colors.surface)
     ) {
         Switch(
             modifier = Modifier.align(Alignment.CenterEnd),
             checked = darkMode,
             colors = SwitchDefaults.colors(
-                checkedThumbColor = MaterialTheme.colors.secondary,
-                checkedTrackColor = MaterialTheme.colors.onSecondary,
+                checkedThumbColor = ViserTheme.colors.accent,
+                checkedTrackColor = ViserTheme.colors.accent.copy(AlphaNearOpaque),
+                uncheckedThumbColor = ViserTheme.colors.accessoryVariant,
+                uncheckedTrackColor = ViserTheme.colors.accessoryVariant.copy(AlphaNearOpaque),
             ),
             onCheckedChange = {
                 scope.launch {
@@ -61,7 +66,7 @@ fun SwitchItem() {
         Text(
             text = "Night theme",
             style = MaterialTheme.typography.subtitle1,
-            color = MaterialTheme.colors.onBackground,
+            color = ViserTheme.colors.onSurface,
             modifier = Modifier.align(Alignment.CenterStart)
         )
     }
@@ -73,7 +78,7 @@ fun Header(navController: NavHostController) {
         Modifier
             .height(56.dp)
             .fillMaxWidth()
-            .background(MaterialTheme.colors.primary)
+            .background(ViserTheme.colors.leading)
     ) {
         IconButton(
             onClick = { navController.navigateUp() },
@@ -82,7 +87,7 @@ fun Header(navController: NavHostController) {
             Icon(
                 imageVector = Icons.Default.ArrowBack,
                 contentDescription = null,
-                tint = MaterialTheme.colors.onPrimary
+                tint = ViserTheme.colors.onLeading
             )
         }
 
@@ -90,10 +95,16 @@ fun Header(navController: NavHostController) {
             text = "Settings",
             style = MaterialTheme.typography.h5,
             fontFamily = FontFamily.SansSerif,
-            color = MaterialTheme.colors.onPrimary,
+            color = ViserTheme.colors.onLeading,
             modifier = Modifier
                 .align(Alignment.CenterStart)
                 .padding(horizontal = 56.dp)
+        )
+        Divider(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter),
+            color = ViserTheme.colors.background
         )
     }
 }

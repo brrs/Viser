@@ -6,19 +6,22 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowForward
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import re.proxy0.viser.data.Book
 import re.proxy0.viser.data.BookCollection
+import re.proxy0.viser.ui.theme.ViserTheme
 
 
 @Composable
@@ -36,7 +39,7 @@ fun BookCollectionList(
         ) {
             Text(
                 text = bookCollection.name,
-                color = MaterialTheme.colors.onBackground,
+                color = ViserTheme.colors.onSurface,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier
@@ -45,11 +48,11 @@ fun BookCollectionList(
             )
             IconButton(
                 onClick = { /* todo */ },
-                modifier = Modifier.align(Alignment.CenterVertically)
+                modifier = Modifier.align(Alignment.CenterVertically),
             ) {
                 Icon(
                     imageVector = Icons.Outlined.ArrowForward,
-                    tint = MaterialTheme.colors.onBackground,
+                    tint = ViserTheme.colors.onSurface,
                     contentDescription = null
                 )
             }
@@ -81,7 +84,7 @@ fun BookItem(
     modifier: Modifier = Modifier
 ) {
     Surface(
-        color = MaterialTheme.colors.surface,
+        color = ViserTheme.colors.background,
         shape = RoundedCornerShape(8.dp),
         modifier = modifier.padding(
             start = 8.dp,
@@ -91,7 +94,7 @@ fun BookItem(
     ) {
         Column(
             modifier = Modifier
-                .clickable(onClick = { onBookClick(0 /*TODO*/) })
+                .clickable(onClick = { onBookClick(book.id) })
         ) {
             BookImage(
                 imageUrl = book.coverUrl,
@@ -100,7 +103,7 @@ fun BookItem(
             )
             Text(
                 text = book.name,
-                color = MaterialTheme.colors.onSurface,
+                color = ViserTheme.colors.onBackgroundSecondary,
                 modifier = Modifier.padding(top = 8.dp, start = 12.dp)
             )
             Spacer(Modifier.height(8.dp))
@@ -115,7 +118,7 @@ fun BookImage(
     modifier: Modifier = Modifier
 ) {
     Surface(
-        color = Color.LightGray,
+        color = ViserTheme.colors.background,
         modifier = modifier
     ) {
         Image(
